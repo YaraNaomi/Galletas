@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias sin límites</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        header {
+            background-color: #fcd2f3;
+            color: #f5a2cf;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        .main-title {
+            font-family: 'Bubble Bobble';
+            font-size: 2em;
+            text-shadow: 2px 2px 2px #b68a51;
+        }
+        .sub-title {
+            font-family: 'Bubble Bobble', Times, serif;
+            font-size: 2em;
+            text-shadow: 2px 2px 2px #b68a51;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-top: 80px;
+        }
+        .product {
+            width: 30%;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product-details {
+            padding: 20px;
+            text-align: center;
+        }
+        .product-details h2 {
+            margin-top: 0;
+        }
+        .cart-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .cart-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-items li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-total {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .details-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .details-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .details-container p {
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="Logo de Delicias sin límites.png" alt="Logo de Delicias sin límites">
+        <h1><span class="main-title">Delicias sin</span> <span class="sub-title">límites</span></h1>
+    </header>
+
+    <div class="mission-vision-values">
+        <h2>Misión, Visión, Valores y Quiénes Somos</h2>
+        <h3>Misión</h3>
+        <p>Nuestra misión es ofrecer productos saludables y deliciosos elaborados con ingredientes naturales y de alta calidad, promoviendo un estilo de vida consciente y sostenible.</p>
+        
+        <h3>Visión</h3>
+        <p>Aspiramos a ser líderes en la industria de alimentos saludables, expandiendo nuestra oferta y llegando a más personas que valoran la calidad y el bienestar.</p>
+        
+        <h3>Valores</h3>
+        <ul>
+            <li>Calidad: Nos comprometemos a utilizar ingredientes de la más alta calidad en todos nuestros productos.</li>
+            <li>Innovación: Buscamos constantemente mejorar y diversificar nuestra oferta de productos saludables.</li>
+            <li>Sostenibilidad: Promovemos prácticas sostenibles en todas nuestras operaciones.</li>
+            <li>Integridad: Actuamos con honestidad y transparencia en todas nuestras relaciones.</li>
+            <li>Salud y Bienestar: Nos preocupamos por la salud y el bienestar de nuestros clientes y comunidad.</li>
+        </ul>
+        
+        <h3>Quiénes Somos</h3>
+        <p>Somos una empresa comprometida con la salud y el bienestar, ofreciendo galletas y productos horneados que combinan nutrición y sabor excepcional.</p>
+    </div>
+
+    <div class="container">
+        <div class="product" onclick="addToCart('Galleta de Cacahuate con Plátano', 20)">
+            <img src="galletacacahuateyplatano.jpeg" alt="Galleta de Cacahuate con Plátano">
+            <div class="product-details">
+                <h2>Galleta de Cacahuate con Plátano</h2>
+                <p>Precio: $20</p>
+                <p>Ingredientes: Cacahuate, plátano, amaranto, arándano, ajonjolí negro y blanco.</p>
+            </div>
+        </div>
+        <div class="product" onclick="addToCart('Galleta de Coco', 20)">
+            <img src="galletacoco.jpeg" alt="Galleta de Coco">
+            <div class="product-details">
+                <h2>Galleta de Coco</h2>
+                <p>Precio: $20</p>
+                <p>Ingredientes: Coco, canela, amaranto, nuez, ajonjolí blanco y negro.</p>
+            </div>
+        </div>
+        <div class="product" onclick="addToCart('Galleta de Manzana', 20)">
+            <img src="galletasemillas.jpeg" alt="Galleta de Manzana">
+            <div class="product-details">
+                <h2>Galleta de Manzana</h2>
+                <p>Precio: $20</p>
+                <p>Ingredientes: Manzana, pepita de calabaza, amaranto, cacahuate, ajonjolí negro y blanco.</p>
+            </div>
+        </div>
+        <div class="product" onclick="addToCart('Galleta de Plátano', 20)">
+            <img src="galletaplatano.jpeg" alt="Galleta de Plátano">
+            <div class="product-details">
+                <h2>Galleta de Plátano</h2>
+                <p>Precio: $20</p>
+                <p>Ingredientes: Plátano, avena, pasas, amaranto, nuez.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <h2>Carrito de Compras</h2>
+        <ul class="cart-items" id="cart-items"></ul>
+        <div class="cart-total" id="cart-total"></div>
+    </div>
+
+    <div class="details-container" id="details-container">
+        <h2 id="details-title"></h2>
+        <p id="details-price"></p>
+        <p id="details-ingredients"></p>
+        <button onclick="hideDetails()">Cerrar</button>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productName, productPrice) {
+            const product = cart.find(p => p.name === productName);
+            if (product) {
+                product.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(product => {
+                const item = document.createElement('li');
+                item.textContent = ${product.name} - ${product.quantity} x $${product.price};
+                cartItems.appendChild(item);
+                total += product.quantity * product.price;
+            });
+
+            cartTotal.textContent = Total: $${total};
+        }
+
+        function showDetails(productName, productPrice, productIngredients) {
+            const detailsContainer = document.getElementById('details-container');
+            constdetailsTitle = document.getElementById('details-title');
+            const detailsPrice = document.getElementById('details-price');
+            const detailsIngredients = document.getElementById('details-ingredients');
+
+            detailsTitle.textContent = productName;
+            detailsPrice.textContent = Precio: $${productPrice};
+            detailsIngredients.textContent = Ingredientes: ${productIngredients};
+
+            detailsContainer.style.display = 'block';
+        }
+
+        function hideDetails() {
+            const detailsContainer = document.getElementById('details-container');
+            detailsContainer.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
